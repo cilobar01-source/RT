@@ -1,0 +1,31 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isSignedIn(){ return request.auth != null; }
+    function isAdmin(){ return isSignedIn() && request.auth.token.admin == true; }
+
+    match /users/{userId} {
+      allow read, update: if request.auth.uid == userId;
+      allow create: if isSignedIn();
+      allow delete: if isAdmin();
+    }
+
+    match /pengumuman/{doc} { allow read: if true; allow write: if isAdmin(); }
+    match /agenda/{doc} { allow read: if true; allow write: if isAdmin(); }
+    match /laporan/{doc} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn();
+      allow update, delete: if isAdmin();
+    }
+    match /umkm/{doc} {
+      allow read: if true;
+      allow create: if isSignedIn();
+      allow update, delete: if isAdmin();
+    }
+    match /iuran/{doc} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn();
+      allow update, delete: if isAdmin();
+    }
+  }
+}

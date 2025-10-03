@@ -1,0 +1,31 @@
+:root{--bg:#f9f5ef;--fg:#2f3e75;--muted:#8b7355;--card:#fff;--border:#d6ccc2;--brand:#8b4513;--brand-contrast:#fff}
+:root.dark{--bg:#1c1c1c;--fg:#f0f0f0;--muted:#bbb;--card:#2a2a2a;--border:#444;--brand:#f0b429;--brand-contrast:#000}
+:root.theme-independence{--brand:#ff0000}
+:root.theme-xmas{--brand:#006400}
+:root.theme-newyear{--brand:#d4af37}
+:root.theme-imlek{--brand:#b22222}
+:root.theme-ramadhan{--brand:#006400}
+:root.theme-idulfitri{--brand:#228b22}
+
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif}
+a{color:inherit;text-decoration:none}
+.container{max-width:1100px;margin:0 auto;padding:16px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px}
+.btn{background:var(--brand);color:var(--brand-contrast);border:1px solid var(--border);padding:8px 12px;border-radius:8px;cursor:pointer}
+.input, textarea, select{width:100%;padding:10px;border:1px solid var(--border);border-radius:8px;background:var(--card);color:var(--fg)}
+
+.nav{position:sticky;top:0;z-index:10;background:var(--brand);color:var(--brand-contrast)}
+.nav .wrap{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:10px 16px}
+.links{display:flex;gap:12px;align-items:center}
+footer{border-top:1px solid var(--border);padding:16px;color:var(--muted)}
+
+/* Ornaments */
+canvas.orn{position:absolute;left:0;right:0;width:100%;pointer-events:none}
+.snow{top:0;height:160px}
+.fireworks{top:0;height:180px}
+.lanterns,.lanterns.moon,.ketupat,.flags{height:40px;background-repeat:repeat-x;opacity:0.9}
+.lanterns{background-image: linear-gradient(90deg,#b22222 20px,transparent 20px), radial-gradient(#ffd700 4px,transparent 5px);background-size:60px 2px,80px 40px;background-position:0 0,0 10px;border-bottom:2px dashed rgba(255,215,0,0.6)}
+.lanterns.moon{background-image: radial-gradient(#ffd700 5px,transparent 6px), radial-gradient(#ffd700 5px,transparent 6px);background-size:80px 40px; background-position:0 10px,40px 10px}
+.ketupat{background-image: repeating-linear-gradient(45deg,#228b22 0 10px,#adff2f 10px 20px);}
+.flags{background-image: repeating-linear-gradient(90deg,#ff0000 0 24px,#ffffff 24px 48px);}
